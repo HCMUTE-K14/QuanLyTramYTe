@@ -57,6 +57,18 @@
   <ItemGroup>
     <Compile Include="Classes\MoveFrame.cs" />
     <Compile Include="Classes\UserModel.cs" />
+    <Compile Include="Frm\FrmGiaThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmGiaThuoc.Designer.cs">
+      <DependentUpon>FrmGiaThuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmLoaiThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmLoaiThuoc.Designer.cs">
+      <DependentUpon>FrmLoaiThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +80,12 @@
     </Compile>
     <Compile Include="Frm\FrmMain.designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmThuoc.Designer.cs">
+      <DependentUpon>FrmThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\ucBenhNhan.cs">
       <SubType>UserControl</SubType>
@@ -81,19 +99,37 @@
     <Compile Include="Module\ucKhamBenh.Designer.cs">
       <DependentUpon>ucKhamBenh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\ucThuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\ucThuoc.Designer.cs">
+      <DependentUpon>ucThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm\FrmGiaThuoc.resx">
+      <DependentUpon>FrmGiaThuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmLoaiThuoc.resx">
+      <DependentUpon>FrmLoaiThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmThuoc.resx">
+      <DependentUpon>FrmThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\ucBenhNhan.resx">
       <DependentUpon>ucBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\ucKhamBenh.resx">
       <DependentUpon>ucKhamBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\ucThuoc.resx">
+      <DependentUpon>ucThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,6 +181,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background-Color-24B.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Happy_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Happy_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pill_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syringe_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\US Dollar_96px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

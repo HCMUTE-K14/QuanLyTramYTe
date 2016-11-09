@@ -31,7 +31,7 @@ namespace bussinessAccessLayer
                 new SqlParameter("@MaLT", MaLoaiThuoc),
                 new SqlParameter("@TenLThuoc", TenLoaiThuoc));
         }
-        public bool XoaDVT(string MaLoaiThuoc)
+        public bool XoaLoaiThuoc(string MaLoaiThuoc)
         {
             return da.executeNonQuery("spXoaLoaiThuoc", CommandType.StoredProcedure,
                 new SqlParameter("@MaLT", MaLoaiThuoc));

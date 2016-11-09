@@ -20,7 +20,7 @@ namespace bussinessAccessLayer
         {
             return da.executeQueryDataSet("select * from f_showBenhNhan()");
         }
-        public bool ThemBenhNhan(string TenKhachHang,string QueQuan,string CMND,string NgaySinh,string SDT,string GioiTinh)
+        public bool ThemBenhNhan(string TenKhachHang,string QueQuan,string CMND,DateTime NgaySinh,string SDT,string GioiTinh)
         {
             return da.executeNonQuery("spThemBenhNhan", CommandType.StoredProcedure,
                 new System.Data.SqlClient.SqlParameter("@TenKhachHang", TenKhachHang),
@@ -32,7 +32,7 @@ namespace bussinessAccessLayer
 
                 );
         }
-        public bool SuaBenhNhan(string MaKhachHang,string TenKhachHang, string QueQuan, string CMND, string NgaySinh, string SDT,string GioiTinh)
+        public bool SuaBenhNhan(string MaKhachHang,string TenKhachHang, string QueQuan, string CMND, DateTime NgaySinh, string SDT,string GioiTinh)
         {
             return da.executeNonQuery("spCapNhatBenhNhan", CommandType.StoredProcedure,
                  new System.Data.SqlClient.SqlParameter("@MaKH", MaKhachHang),

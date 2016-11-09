@@ -1,35 +1,38 @@
-﻿using System;
+﻿using QuanLyTramYTe.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using bussinessAccessLayer;
-using QuanLyTramYTe.Classes;
 using System.Data.SqlClient;
 
-namespace QuanLyTramYTe.Module
+namespace QuanLyTramYTe.Frm
 {
-    public partial class ucBenhNhan : UserControl
+    public partial class FrmThuoc : Form
     {
-        BenhNhanDAO bn;
-        bool f = false;
-        string curMaBN;
-        public ucBenhNhan(UserModel um)
+        UserModel um;
+        ThuocDAO thuocDao;
+        DonViTinhDAO dvtDao;
+        LoaiThuocDAO ltDao;
+        ChiThuocThuocDAO cttDao;
+        bool f;
+        string currentMaThuoc;
+        public FrmThuoc(UserModel um)
         {
             InitializeComponent();
 
-            bn=new BenhNhanDAO(um.getUid(), um.getPwd());
-        }
+            this.um=um;
 
-        
+            thuocDao=new ThuocDAO(um.getUid(), um.getPwd());
+            dvtDao=new DonViTinhDAO(um.getUid(), um.getPwd());
+            ltDao=new LoaiThuocDAO(um.getUid(), um.getPwd());
+            cttDao=new ChiThuocThuocDAO(um.getUid(), um.getPwd());
 
-        private void ucBenhNhan_Load(object sender, EventArgs e)
-        {
-            LoadData();
         }
         private void LoadData()
         {
@@ -40,34 +43,31 @@ namespace QuanLyTramYTe.Module
             btnThem.Enabled=true;
             btnReload.Enabled=true;
 
-            txtTenBenhNhan.Enabled=false;
-            txtCMND.Enabled=false;
-            txtQueQuan.Enabled=false;
-            dateTimePicker1.Enabled=false;
-            txtSDT.Enabled=false;
+            txtTenThuoc.Enabled=false;
+            txtMoTa.Enabled=false;
+            txtTinhTrang.Enabled=false;
 
-            comboBox1.Items.Clear();
-            comboBox1.Items.Add("Nam");
-            comboBox1.Items.Add("Nữ");
-            comboBox1.Items.Add("Khác");
-            comboBox1.SelectedIndex=0;
+            comBoxLoaiThuoc.Enabled=false;
 
-            dataGridView1.DataSource=bn.getBenhNhan().Tables[0];
+            comBoxLoaiThuoc.DataSource=ltDao.getLoaiThuoc().Tables[0];
+            comBoxLoaiThuoc.DisplayMember="TenLoaiThuoc";
+            comBoxLoaiThuoc.ValueMember="MaLoaiThuoc";
+
+            dgvThuoc.DataSource=thuocDao.getThuoc().Tables[0];
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
             f=true;
             //
-            txtTenBenhNhan.Enabled=true;
-            txtSDT.Enabled=true;
-            txtQueQuan.Enabled=true;
-            txtCMND.Enabled=true;
+            txtTenThuoc.Enabled=true;
+            txtTinhTrang.Enabled=true;
+            txtMoTa.Enabled=true;
+            comBoxLoaiThuoc.Enabled=true;
 
-            txtTenBenhNhan.ResetText();
-            txtSDT.ResetText();
-            txtQueQuan.ResetText();
-            txtCMND.ResetText();
-            dateTimePicker1.Enabled=true;
+
+            txtTenThuoc.ResetText();
+            txtTinhTrang.ResetText();
+            txtMoTa.ResetText();
             //
             btnLuu.Enabled=true;
             btnHuy.Enabled=true;
@@ -76,38 +76,32 @@ namespace QuanLyTramYTe.Module
             btnSua.Enabled=false;
             btnXoa.Enabled=true;
             //đưa trỏ lên ô nhập liệu
-            txtTenBenhNhan.Focus();
+            txtTenThuoc.Focus();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             f=false;
             //
-            txtTenBenhNhan.Enabled=true;
-            txtSDT.Enabled=true;
-            txtQueQuan.Enabled=true;
-            txtCMND.Enabled=true;
-            dateTimePicker1.Enabled=true;
+            txtTenThuoc.Enabled=true;
+            txtTinhTrang.Enabled=true;
+            txtMoTa.Enabled=true;
+            comBoxLoaiThuoc.Enabled=true;
+
             //lấy hàng cần sửa
-            int r = dataGridView1.CurrentCell.RowIndex;
-            curMaBN=dataGridView1.Rows[r].Cells[0].Value.ToString();
-            txtTenBenhNhan.Text=dataGridView1.Rows[r].Cells[1].Value.ToString();
-            txtQueQuan.Text=dataGridView1.Rows[r].Cells[2].Value.ToString();
-            txtCMND.Text=dataGridView1.Rows[r].Cells[3].Value.ToString();
-            txtSDT.Text=dataGridView1.Rows[r].Cells[5].Value.ToString();
-            comboBox1.Text=dataGridView1.Rows[r].Cells[6].Value.ToString();
-            try
-            {
-                dateTimePicker1.Value=DateTime.Parse(dataGridView1.Rows[r].Cells[4].Value.ToString());
-            }
-            catch { }
+            int r = dgvThuoc.CurrentCell.RowIndex;
+            currentMaThuoc=dgvThuoc.Rows[r].Cells["MaThuoc"].Value.ToString();
+            txtTenThuoc.Text=dgvThuoc.Rows[r].Cells["TenThuoc"].Value.ToString();
+            txtMoTa.Text=dgvThuoc.Rows[r].Cells["MoTa"].Value.ToString();
+            txtTinhTrang.Text=dgvThuoc.Rows[r].Cells["TinhTrang"].Value.ToString();
+            comBoxLoaiThuoc.Text=dgvThuoc.Rows[r].Cells["TenLoaiThuoc"].Value.ToString();
             //
             btnLuu.Enabled=true;
             btnHuy.Enabled=true;
             //
             btnThem.Enabled=false;
             btnSua.Enabled=false;
-           
+
             btnXoa.Enabled=true;
             //đưa trỏ lên ô nhập liệu
         }
@@ -117,15 +111,15 @@ namespace QuanLyTramYTe.Module
             try
             {
                 //lấy hàng cần xóa
-                int r = dataGridView1.CurrentCell.RowIndex;
+                int r = dgvThuoc.CurrentCell.RowIndex;
                 //lấy mã khách hàng
-                curMaBN=dataGridView1.Rows[r].Cells[0].Value.ToString();
+                currentMaThuoc=dgvThuoc.Rows[r].Cells["MaThuoc"].Value.ToString();
                 //hỏi xem có muốn xóa không
                 DialogResult traloi;
                 traloi=MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (traloi==DialogResult.OK)
                 {
-                    bool trangthai = bn.XoaBenhNhan(curMaBN);
+                    bool trangthai = thuocDao.XoaThuoc(currentMaThuoc);
                     if (trangthai)
                     {
 
@@ -154,14 +148,8 @@ namespace QuanLyTramYTe.Module
             {
                 if (f)
                 {
-                    string tenbn = txtTenBenhNhan.Text;
-                    string qq = txtQueQuan.Text;
-                    string cmnd = txtCMND.Text;
-                    DateTime ns = DateTime.Parse(dateTimePicker1.Text);
-                    MessageBox.Show(ns.ToShortDateString());
-                    string sdt = txtSDT.Text;
-                    string gt = comboBox1.Text;
-                    bool trangthai = bn.ThemBenhNhan(tenbn,qq,cmnd,ns, sdt, gt);
+                    bool trangthai = thuocDao.ThemThuoc(txtTenThuoc.Text, comBoxLoaiThuoc.SelectedValue.ToString(),
+                        txtTinhTrang.Text, txtMoTa.Text);
                     if (trangthai)
                     {
 
@@ -176,7 +164,8 @@ namespace QuanLyTramYTe.Module
                 }
                 else
                 {
-                    bool trangthai = bn.SuaBenhNhan(curMaBN, txtTenBenhNhan.Text, txtQueQuan.Text, txtCMND.Text, dateTimePicker1.Value, txtSDT.Text, comboBox1.Text);
+                    bool trangthai = thuocDao.SuaThuoc(currentMaThuoc, txtTenThuoc.Text, comBoxLoaiThuoc.SelectedValue.ToString(), txtTinhTrang.Text, txtMoTa.Text);
+
                     if (trangthai)
                     {
                         MessageBox.Show("Cập nhật dữ liệu thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -202,20 +191,22 @@ namespace QuanLyTramYTe.Module
             LoadData();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void FrmThuoc_Load(object sender, EventArgs e)
         {
-            int r = dataGridView1.CurrentCell.RowIndex;
-            curMaBN=dataGridView1.Rows[r].Cells[0].Value.ToString();
-            txtTenBenhNhan.Text=dataGridView1.Rows[r].Cells[1].Value.ToString();
-            txtQueQuan.Text=dataGridView1.Rows[r].Cells[2].Value.ToString();
-            txtCMND.Text=dataGridView1.Rows[r].Cells[3].Value.ToString();
-            txtSDT.Text=dataGridView1.Rows[r].Cells[5].Value.ToString();
-            comboBox1.Text=dataGridView1.Rows[r].Cells[6].Value.ToString();
-            try
-            {
-                dateTimePicker1.Value=DateTime.Parse(dataGridView1.Rows[r].Cells[4].Value.ToString());
-            }
-            catch { }
+            LoadData();
+        }
+
+        private void dgvThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //lấy hàng cần sửa
+            int r = dgvThuoc.CurrentCell.RowIndex;
+            currentMaThuoc=dgvThuoc.Rows[r].Cells["MaThuoc"].Value.ToString();
+            txtTenThuoc.Text=dgvThuoc.Rows[r].Cells["TenThuoc"].Value.ToString();
+            txtMoTa.Text=dgvThuoc.Rows[r].Cells["MoTa"].Value.ToString();
+            txtTinhTrang.Text=dgvThuoc.Rows[r].Cells["TinhTrang"].Value.ToString();
+
+            comBoxLoaiThuoc.Text=dgvThuoc.Rows[r].Cells["TenLoaiThuoc"].Value.ToString();
         }
     }
 }

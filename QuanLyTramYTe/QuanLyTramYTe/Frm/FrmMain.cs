@@ -40,5 +40,11 @@ namespace QuanLyTramYTe
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(new ucBenhNhan(um));
         }
+
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(new ucThuoc(um));
+        }
     }
 }

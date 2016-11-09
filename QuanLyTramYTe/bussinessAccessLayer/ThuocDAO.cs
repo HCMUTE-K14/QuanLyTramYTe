@@ -15,6 +15,7 @@ namespace bussinessAccessLayer
         {
             da=new dataAccess();
             da.OpenConnect(uid, pwd);
+          
         }
 
         public DataSet getThuoc()
