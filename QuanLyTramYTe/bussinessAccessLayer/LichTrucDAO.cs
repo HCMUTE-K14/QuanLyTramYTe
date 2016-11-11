@@ -18,7 +18,14 @@ namespace bussinessAccessLayer
             da=new dataAccess();
             da.OpenConnect(uid, pwd);
         }
-
+        public DataSet getLichTruc(string MaNV)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_showLichTruc('{0}')", MaNV));
+        }
+        public DataSet getLichTruc(string MaNV,DateTime ngaytruc)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_showLichTrucTheoThoiGian('{0}','{1}')", MaNV,ngaytruc.ToShortDateString()));
+        }
         public bool ThemLichTruc(string MaNV,string NgayDiTruc,string CongViecTruc)
         {
             return da.executeNonQuery("spThemLichTruc",CommandType.StoredProcedure,

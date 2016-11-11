@@ -27,7 +27,7 @@ namespace QuanLyTramYTe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.label6.Text=um.getHoTen();
         }
 
         private void ucPanel31_Load(object sender, EventArgs e)
@@ -45,6 +45,27 @@ namespace QuanLyTramYTe
         {
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(new ucThuoc(um));
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            this.panel2.Controls.Clear();
+
+            if(um.getChucvu()=="Trạm trưởng")
+                this.panel2.Controls.Add(new ucNhanVien_tr(um));
+        }
+
+        private void panel8_Click(object sender, EventArgs e)
+        {
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(new ucHoaDon(um));
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Frm.FrmLogin().ShowDialog();
+            this.Close();
         }
     }
 }

@@ -41,6 +41,7 @@ namespace QuanLyTramYTe.Frm
                     
                 return;
             }
+            MessageBox.Show("failse");
         }
         
 

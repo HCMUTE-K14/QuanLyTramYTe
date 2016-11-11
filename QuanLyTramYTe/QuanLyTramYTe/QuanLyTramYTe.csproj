@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,11 +58,29 @@
   <ItemGroup>
     <Compile Include="Classes\MoveFrame.cs" />
     <Compile Include="Classes\UserModel.cs" />
+    <Compile Include="Frm\FrmCTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmCTHD.Designer.cs">
+      <DependentUpon>FrmCTHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmDonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmDonViTinh.Designer.cs">
+      <DependentUpon>FrmDonViTinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmGiaThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm\FrmGiaThuoc.Designer.cs">
       <DependentUpon>FrmGiaThuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmHoaDon.Designer.cs">
+      <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\FrmLoaiThuoc.cs">
       <SubType>Form</SubType>
@@ -81,6 +100,12 @@
     <Compile Include="Frm\FrmMain.designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmThongKe.Designer.cs">
+      <DependentUpon>FrmThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,11 +118,29 @@
     <Compile Include="Module\ucBenhNhan.Designer.cs">
       <DependentUpon>ucBenhNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\ucHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\ucHoaDon.Designer.cs">
+      <DependentUpon>ucHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\ucKhamBenh.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Module\ucKhamBenh.Designer.cs">
       <DependentUpon>ucKhamBenh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\ucNhanVien_bt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\ucNhanVien_bt.Designer.cs">
+      <DependentUpon>ucNhanVien_bt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\ucNhanVien_tr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\ucNhanVien_tr.Designer.cs">
+      <DependentUpon>ucNhanVien_tr.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\ucThuoc.cs">
       <SubType>UserControl</SubType>
@@ -107,8 +150,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm\FrmCTHD.resx">
+      <DependentUpon>FrmCTHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmDonViTinh.resx">
+      <DependentUpon>FrmDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmGiaThuoc.resx">
       <DependentUpon>FrmGiaThuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmHoaDon.resx">
+      <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmLoaiThuoc.resx">
       <DependentUpon>FrmLoaiThuoc.cs</DependentUpon>
@@ -119,14 +171,26 @@
     <EmbeddedResource Include="Frm\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmThongKe.resx">
+      <DependentUpon>FrmThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmThuoc.resx">
       <DependentUpon>FrmThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\ucBenhNhan.resx">
       <DependentUpon>ucBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\ucHoaDon.resx">
+      <DependentUpon>ucHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\ucKhamBenh.resx">
       <DependentUpon>ucKhamBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\ucNhanVien_bt.resx">
+      <DependentUpon>ucNhanVien_bt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\ucNhanVien_tr.resx">
+      <DependentUpon>ucNhanVien_tr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\ucThuoc.resx">
       <DependentUpon>ucThuoc.cs</DependentUpon>
@@ -202,6 +266,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\US Dollar_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoadon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cthd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line Chart_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\khambbee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bennhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thouoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employee Card_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pilll.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,6 +19,10 @@ namespace bussinessAccessLayer
         {
             return da.executeQueryDataSet("select * from f_showHD()");
         }
+        public DataSet getHoaDon(DateTime NgayLapHD)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_showHoaDonTheoNgay('{0}')", NgayLapHD));
+        }
         public bool ThemHoaDon(float SoTien, string MaKhachHang, bool CoBaoHiem, string MaNV)
         {
             return da.executeNonQuery("spThemBenhNhan", CommandType.StoredProcedure,
@@ -45,9 +49,21 @@ namespace bussinessAccessLayer
             return da.executeNonQuery("spXoaHoaDon", CommandType.StoredProcedure,
                 new System.Data.SqlClient.SqlParameter("@MaHoaDon", MaHoaDon));
         }
-        //public double TongTienHoaDon(string MaHoaDon)
-        //{
-        //    return Convert.ToDouble(da.executeScalar(string.Format("select * from f_tongGTHD('{0}')", MaHoaDon),CommandType.Text,null));
-        //}
+        public double TongTienHoaDon(string MaHoaDon)
+        {
+            DataTable dt = new DataTable();
+            double result=0;
+
+            dt=da.executeQueryDataSet(string.Format("select [dbo].[f_tongTienHoaDon]('{0}')", MaHoaDon)).Tables[0];
+
+            result=Double.Parse(dt.Rows[0][0].ToString());
+
+            return result;
+
+        }
+        public DataSet ThongKe(DateTime ngay1,DateTime ngay2)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_tinhDoanhThu('{0}','{1}')", ngay1, ngay2));
+        }
     }
 }

@@ -21,10 +21,14 @@ namespace bussinessAccessLayer
         {
             return da.executeQueryDataSet("select * from f_showNhanVien()");
         }
-
-        public bool ThemNhanVien(string HoTen,string NgaySinh,string QueQuan,string TrinhDo,double Luong,string ChucVu,string Phai)
+        public DataSet getNhanVien(string MaNV)
         {
-            return da.executeNonQuery("spThemNhanVien", CommandType.StoredProcedure,
+            string sql = string.Format("select * from f_showNhanVienTheoMa('{0}')", MaNV);
+            return da.executeQueryDataSet(sql);
+        }
+        public bool ThemNhanVien(string HoTen,DateTime NgaySinh,string QueQuan,string TrinhDo,double Luong,string ChucVu,string Phai)
+        {
+            return da.executeNonQuery("spThemNV", CommandType.StoredProcedure,
                 new SqlParameter("@HoTen", HoTen),
                 new SqlParameter("@NgaySinh", NgaySinh),
                 new SqlParameter("@QueQuan", QueQuan),
@@ -34,7 +38,7 @@ namespace bussinessAccessLayer
                 new SqlParameter("@Phai", Phai));
 
         }
-        public bool SuaNhanVien(string MaNV,string HoTen, string NgaySinh, string QueQuan, string TrinhDo, double Luong, string ChucVu, string Phai)
+        public bool SuaNhanVien(string MaNV,string HoTen, DateTime NgaySinh, string QueQuan, string TrinhDo, double Luong, string ChucVu, string Phai)
         {
             return da.executeNonQuery("spCapNhatNhanVien", CommandType.StoredProcedure,
                 new SqlParameter("@MaNV",MaNV),

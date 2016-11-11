@@ -9,26 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using bussinessAccessLayer;
 using QuanLyTramYTe.Classes;
-using System.Data.SqlClient;
-
 namespace QuanLyTramYTe.Frm
 {
-    public partial class FrmLoaiThuoc : Form
+    public partial class FrmDonViTinh : Form
     {
-        public FrmLoaiThuoc(UserModel um)
+        public FrmDonViTinh(UserModel um)
         {
             InitializeComponent();
 
             this.um=um;
 
-            lt=new LoaiThuocDAO(um.getUid(), um.getPwd());
-
+            dvtDAO=new DonViTinhDAO(um.getUid(), um.getPwd());
         }
 
-        LoaiThuocDAO lt;
+        DonViTinhDAO dvtDAO;
         UserModel um;
         bool f;
-        string currentMaLoaiThuoc;
+        string currentMVT;
         private void LoadData()
         {
             btnHuy.Enabled=false;
@@ -37,12 +34,8 @@ namespace QuanLyTramYTe.Frm
             btnThem.Enabled=true;
             btnReload.Enabled=true;
             txtLoaiThuoc.Enabled=false;
-          
-            dgvLoaiThuoc.DataSource=lt.getLoaiThuoc().Tables[0];
-        }
-        private void FrmLoaiThuoc_Load(object sender, EventArgs e)
-        {
-            LoadData();
+
+            dgvLoaiThuoc.DataSource=dvtDAO.getDVT().Tables[0];
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -68,7 +61,7 @@ namespace QuanLyTramYTe.Frm
             txtLoaiThuoc.Enabled=true;
             //lấy hàng cần sửa
             int r = dgvLoaiThuoc.CurrentCell.RowIndex;
-            currentMaLoaiThuoc=dgvLoaiThuoc.Rows[r].Cells[0].Value.ToString();
+            currentMVT=dgvLoaiThuoc.Rows[r].Cells[0].Value.ToString();
             txtLoaiThuoc.Text=dgvLoaiThuoc.Rows[r].Cells[1].Value.ToString();
             //
             btnLuu.Enabled=true;
@@ -76,7 +69,7 @@ namespace QuanLyTramYTe.Frm
             //
             btnThem.Enabled=false;
             btnSua.Enabled=false;
-           
+
             btnXoa.Enabled=true;
             //đưa trỏ lên ô nhập liệu
             txtLoaiThuoc.Focus();
@@ -88,13 +81,13 @@ namespace QuanLyTramYTe.Frm
                 //lấy hàng cần xóa
                 int r = dgvLoaiThuoc.CurrentCell.RowIndex;
                 //lấy mã khách hàng
-                currentMaLoaiThuoc=dgvLoaiThuoc.Rows[r].Cells[0].Value.ToString();
+                currentMVT=dgvLoaiThuoc.Rows[r].Cells[0].Value.ToString();
                 //hỏi xem có muốn xóa không
                 DialogResult traloi;
                 traloi=MessageBox.Show("Bạn có muốn xóa không?\nChú ý: Khi xóa loại thuốc thì tất cả các thông tin liên quan đến thuốc thuộc loại cũng bị xóa.\nHãy cân nhắc.", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (traloi==DialogResult.OK)
                 {
-                    bool trangthai = lt.XoaLoaiThuoc(currentMaLoaiThuoc);
+                    bool trangthai = dvtDAO.XoaDVT(currentMVT);
                     if (trangthai)
                     {
 
@@ -111,7 +104,7 @@ namespace QuanLyTramYTe.Frm
 
                 }
             }
-            catch (SqlException)
+            catch (Exception)
             {
 
             }
@@ -124,7 +117,7 @@ namespace QuanLyTramYTe.Frm
                 {
                     if (f)
                     {
-                        bool trangthai = lt.ThemLoaiThuoc(txtLoaiThuoc.Text);
+                        bool trangthai = dvtDAO.ThemDVT(txtLoaiThuoc.Text);
                         if (trangthai)
                         {
 
@@ -140,7 +133,7 @@ namespace QuanLyTramYTe.Frm
                     else
                     {
                         string err = "";
-                        bool trangthai = lt.SuaLoaiThuoc(currentMaLoaiThuoc, txtLoaiThuoc.Text);
+                        bool trangthai = dvtDAO.SuaDVT(currentMVT, txtLoaiThuoc.Text);
                         if (trangthai)
                         {
 
@@ -160,7 +153,7 @@ namespace QuanLyTramYTe.Frm
                 }
 
             }
-            catch (SqlException)
+            catch (Exception)
             {
 
             }
@@ -178,6 +171,11 @@ namespace QuanLyTramYTe.Frm
         {
             int r = dgvLoaiThuoc.CurrentCell.RowIndex;
             txtLoaiThuoc.Text=dgvLoaiThuoc.Rows[r].Cells[1].Value.ToString();
+        }
+
+        private void FrmDonViTinh_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

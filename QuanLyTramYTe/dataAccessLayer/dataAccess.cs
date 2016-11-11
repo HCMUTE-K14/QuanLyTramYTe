@@ -101,7 +101,8 @@ namespace dataAccessLayer
         {
             object result=null;
             //
-            cmd.Parameters.Clear();
+            if(cmd.Parameters.Count!=0)
+                 cmd.Parameters.Clear();
             cmd.CommandType=type;
             cmd.CommandText=comdText;
 

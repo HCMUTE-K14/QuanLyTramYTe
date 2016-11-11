@@ -27,6 +27,17 @@ namespace bussinessAccessLayer
             this.pwd=pwd;
 
             isLogined=CheckLogin(uid, pwd);
+
+           
+        
+        }
+
+        public string getMaNV_DN(string uid)
+        {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt=dao.executeQueryDataSet(string.Format("select [dbo].[f_getMaNV_TheoLogin]('{0}')", uid)).Tables[0];
+
+            return dt.Rows[0][0].ToString();
         }
 
         public bool CheckLogin(string uid, string pwd)

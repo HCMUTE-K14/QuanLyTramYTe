@@ -19,6 +19,7 @@ namespace QuanLyTramYTe.Module
             InitializeComponent();
 
             this.um=um;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -35,6 +36,11 @@ namespace QuanLyTramYTe.Module
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             new Frm.FrmGiaThuoc(this.um).ShowDialog();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            new Frm.FrmDonViTinh(this.um).ShowDialog();
         }
     }
 }
