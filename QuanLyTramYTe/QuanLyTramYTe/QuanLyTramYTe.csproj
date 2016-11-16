@@ -82,6 +82,12 @@
     <Compile Include="Frm\FrmHoaDon.Designer.cs">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmLichTaiKham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmLichTaiKham.Designer.cs">
+      <DependentUpon>FrmLichTaiKham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FrmLoaiThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     </Compile>
     <Compile Include="Module\ucBenhNhan.Designer.cs">
       <DependentUpon>ucBenhNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\ucHeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\ucHeThong.Designer.cs">
+      <DependentUpon>ucHeThong.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\ucHoaDon.cs">
       <SubType>UserControl</SubType>
@@ -162,6 +174,9 @@
     <EmbeddedResource Include="Frm\FrmHoaDon.resx">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmLichTaiKham.resx">
+      <DependentUpon>FrmLichTaiKham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmLoaiThuoc.resx">
       <DependentUpon>FrmLoaiThuoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\ucBenhNhan.resx">
       <DependentUpon>ucBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\ucHeThong.resx">
+      <DependentUpon>ucHeThong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\ucHoaDon.resx">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
@@ -290,6 +308,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pilll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Services_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThemThuoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XoaThuoc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

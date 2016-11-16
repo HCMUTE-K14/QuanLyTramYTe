@@ -47,5 +47,10 @@ namespace bussinessAccessLayer
         {
             return Convert.ToInt32(da.executeScalar(string.Format("select * from f_tongTaiKham('{0}')", NgayTaiKham), CommandType.Text, null));
         }
+
+        public DataSet LichTaiKhamMoiNhat(string MaBN)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_LichTaiKhamMoiNhat('{0}')", MaBN));
+        }
     }//end class
 }

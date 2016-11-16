@@ -22,6 +22,11 @@ namespace bussinessAccessLayer
         {
             return da.executeQueryDataSet("select * from f_showThuoc()");
         }
+        public DataSet getThuocTheoMaLoaiThuoc(string MaLoaiThuoc)
+        {
+            return da.executeQueryDataSet(string.Format("select * from f_showThuocTheoMaLoaiThuoc({0})",MaLoaiThuoc));
+           // return da.executeQueryDataSet("select * from f_showThuocTheoMaLoaiThuoc(2)");
+        }
         public bool ThemThuoc(string TenThuoc,string MaLT,string TinhTrang,string MoTa)
         {
             return da.executeNonQuery("spThemThuoc", CommandType.StoredProcedure,

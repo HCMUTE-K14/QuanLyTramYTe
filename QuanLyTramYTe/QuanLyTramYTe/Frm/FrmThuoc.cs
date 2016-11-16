@@ -208,5 +208,10 @@ namespace QuanLyTramYTe.Frm
 
             comBoxLoaiThuoc.Text=dgvThuoc.Rows[r].Cells["TenLoaiThuoc"].Value.ToString();
         }
+
+        private void dgvThuoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
     }
 }

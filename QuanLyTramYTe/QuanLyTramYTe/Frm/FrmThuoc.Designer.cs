@@ -82,6 +82,7 @@
             this.dgvThuoc.Size = new System.Drawing.Size(616, 284);
             this.dgvThuoc.TabIndex = 81;
             this.dgvThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThuoc_CellClick);
+            this.dgvThuoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThuoc_CellContentClick);
             // 
             // panel1
             // 

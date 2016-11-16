@@ -213,6 +213,36 @@ namespace QuanLyTramYTe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap restore {
+            get {
+                object obj = ResourceManager.GetObject("restore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_48px {
+            get {
+                object obj = ResourceManager.GetObject("Save_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Services_48px {
+            get {
+                object obj = ResourceManager.GetObject("Services_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sua {
             get {
                 object obj = ResourceManager.GetObject("sua", resourceCulture);
@@ -243,6 +273,16 @@ namespace QuanLyTramYTe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ThemThuoc {
+            get {
+                object obj = ResourceManager.GetObject("ThemThuoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thouoc {
             get {
                 object obj = ResourceManager.GetObject("thouoc", resourceCulture);
@@ -266,6 +306,16 @@ namespace QuanLyTramYTe.Properties {
         internal static System.Drawing.Bitmap xoa {
             get {
                 object obj = ResourceManager.GetObject("xoa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap XoaThuoc {
+            get {
+                object obj = ResourceManager.GetObject("XoaThuoc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

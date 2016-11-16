@@ -67,5 +67,17 @@ namespace QuanLyTramYTe
             new Frm.FrmLogin().ShowDialog();
             this.Close();
         }
+
+        private void panel9_Click(object sender, EventArgs e)
+        {
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(new ucHeThong(um));
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(new ucKhamBenh(um));
+        }
     }
 }

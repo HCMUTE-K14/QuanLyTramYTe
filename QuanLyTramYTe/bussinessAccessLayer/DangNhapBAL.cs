@@ -44,5 +44,17 @@ namespace bussinessAccessLayer
         {
             return dao.OpenConnect(uid, pwd);
         }
+
+
+        public bool Backup(string path)
+        {
+            return dao.executeNonQuery("sp_Backup_Database", System.Data.CommandType.StoredProcedure, 
+                new System.Data.SqlClient.SqlParameter("@Location", path));
+        }
+        public bool Restore(string path)
+        {
+            return dao.executeNonQuery("sp_Restore_Database", System.Data.CommandType.StoredProcedure,
+                new System.Data.SqlClient.SqlParameter("@path", path));
+        }
     }
 }

@@ -18,11 +18,15 @@ namespace QuanLyTramYTe.Module
         BenhNhanDAO bn;
         bool f = false;
         string curMaBN;
+        string curTenBN;
+        UserModel um;
         public ucBenhNhan(UserModel um)
         {
             InitializeComponent();
 
             bn=new BenhNhanDAO(um.getUid(), um.getPwd());
+
+            this.um=um;
         }
 
         
@@ -92,6 +96,7 @@ namespace QuanLyTramYTe.Module
             int r = dataGridView1.CurrentCell.RowIndex;
             curMaBN=dataGridView1.Rows[r].Cells[0].Value.ToString();
             txtTenBenhNhan.Text=dataGridView1.Rows[r].Cells[1].Value.ToString();
+            curTenBN=txtTenBenhNhan.Text;
             txtQueQuan.Text=dataGridView1.Rows[r].Cells[2].Value.ToString();
             txtCMND.Text=dataGridView1.Rows[r].Cells[3].Value.ToString();
             txtSDT.Text=dataGridView1.Rows[r].Cells[5].Value.ToString();
@@ -207,6 +212,7 @@ namespace QuanLyTramYTe.Module
             int r = dataGridView1.CurrentCell.RowIndex;
             curMaBN=dataGridView1.Rows[r].Cells[0].Value.ToString();
             txtTenBenhNhan.Text=dataGridView1.Rows[r].Cells[1].Value.ToString();
+            curTenBN=txtTenBenhNhan.Text;
             txtQueQuan.Text=dataGridView1.Rows[r].Cells[2].Value.ToString();
             txtCMND.Text=dataGridView1.Rows[r].Cells[3].Value.ToString();
             txtSDT.Text=dataGridView1.Rows[r].Cells[5].Value.ToString();
@@ -216,6 +222,11 @@ namespace QuanLyTramYTe.Module
                 dateTimePicker1.Value=DateTime.Parse(dataGridView1.Rows[r].Cells[4].Value.ToString());
             }
             catch { }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new Frm.FrmLichTaiKham(um, curMaBN, curTenBN).ShowDialog();
         }
     }
 }
