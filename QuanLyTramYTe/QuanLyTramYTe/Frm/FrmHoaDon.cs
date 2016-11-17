@@ -23,7 +23,7 @@ namespace QuanLyTramYTe.Frm
 
             this.um=um;
 
-            hdDAO=new HoaDonDAO(um.getUid(), um.getPwd());
+            hdDAO=new HoaDonDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
 
         }

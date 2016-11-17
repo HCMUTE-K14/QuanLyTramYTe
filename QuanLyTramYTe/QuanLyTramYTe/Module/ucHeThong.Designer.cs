@@ -52,7 +52,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(288, 302);
+            this.label2.Location = new System.Drawing.Point(294, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 22);
             this.label2.TabIndex = 30;
@@ -63,17 +63,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(509, 302);
+            this.label3.Location = new System.Drawing.Point(515, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 22);
             this.label3.TabIndex = 31;
             this.label3.Text = "Restore";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::QuanLyTramYTe.Properties.Resources.restore;
-            this.pictureBox3.Location = new System.Drawing.Point(470, 174);
+            this.pictureBox3.Location = new System.Drawing.Point(476, 177);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(155, 150);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -84,7 +85,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QuanLyTramYTe.Properties.Resources.Save_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(244, 174);
+            this.pictureBox1.Location = new System.Drawing.Point(250, 177);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

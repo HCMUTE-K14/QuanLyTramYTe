@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class ThuocDAO
     {
         dataAccess da;
-        public ThuocDAO(string uid,string pwd)
+        public ThuocDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
           
         }
 
@@ -50,6 +50,22 @@ namespace bussinessAccessLayer
             return da.executeNonQuery("spXoaThuoc", CommandType.StoredProcedure,
                 new SqlParameter("@MaT", MaThuoc));
         }
+        public double getGiaThuoc(string MaThuoc)
+        {
+            DataTable dt = new DataTable();
+            double result = 0;
 
+            dt=da.executeQueryDataSet(string.Format("select [dbo].[f_LayGiaTienTheoMaThuoc]('{0}')", MaThuoc)).Tables[0];
+
+            result=Double.Parse(dt.Rows[0][0].ToString());
+
+            return result;
+
+        }
+        public DataSet getDVT(string MaThuoc)
+        {
+           return da.executeQueryDataSet(string.Format("select * from [dbo].[f_LayDVTTheoMaThuoc]('{0}')", MaThuoc));
+
+        }
     }//end class
 }

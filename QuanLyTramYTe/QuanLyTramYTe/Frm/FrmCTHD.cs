@@ -26,8 +26,8 @@ namespace QuanLyTramYTe.Frm
 
             this.currentMaHD=currentMaHD;
 
-            cthdDAO=new ChiTietHoaDonDAO(um.getUid(), um.getPwd());
-            hdDAO=new HoaDonDAO(um.getUid(), um.getPwd());
+            cthdDAO=new ChiTietHoaDonDAO(um.getDataSource(),um.getUid(), um.getPwd());
+            hdDAO=new HoaDonDAO(um.getDataSource(), um.getUid(), um.getPwd());
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -21,7 +21,7 @@ namespace QuanLyTramYTe.Frm
 
             this.um=um;
 
-            lt=new LoaiThuocDAO(um.getUid(), um.getPwd());
+            lt=new LoaiThuocDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
         }
 

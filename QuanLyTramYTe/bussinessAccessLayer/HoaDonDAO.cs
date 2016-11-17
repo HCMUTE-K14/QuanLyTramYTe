@@ -10,10 +10,10 @@ namespace bussinessAccessLayer
     public class HoaDonDAO
     {
         dataAccess da;
-        public HoaDonDAO(string uid, string pwd)
+        public HoaDonDAO(string datasource,string uid, string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getHoaDon()
         {
@@ -23,13 +23,14 @@ namespace bussinessAccessLayer
         {
             return da.executeQueryDataSet(string.Format("select * from f_showHoaDonTheoNgay('{0}')", NgayLapHD));
         }
-        public bool ThemHoaDon(float SoTien, string MaKhachHang, bool CoBaoHiem, string MaNV)
+        public bool ThemHoaDon(float SoTien, string MaKhachHang, bool CoBaoHiem, string MaNV,DateTime NgayLapHoaDon)
         {
-            return da.executeNonQuery("spThemBenhNhan", CommandType.StoredProcedure,
+            return da.executeNonQuery("spThemHoaDon", CommandType.StoredProcedure,
                 new System.Data.SqlClient.SqlParameter("@SoTien", SoTien),
                  new System.Data.SqlClient.SqlParameter("@MaKhachHang", MaKhachHang),
                   new System.Data.SqlClient.SqlParameter("@CoBaoHiem", CoBaoHiem),
-                   new System.Data.SqlClient.SqlParameter("@MaNV", MaNV)
+                   new System.Data.SqlClient.SqlParameter("@MaNV", MaNV),
+                   new System.Data.SqlClient.SqlParameter("@NgayLapHoaDon", NgayLapHoaDon)
                    
                 );
         }
@@ -64,6 +65,17 @@ namespace bussinessAccessLayer
         public DataSet ThongKe(DateTime ngay1,DateTime ngay2)
         {
             return da.executeQueryDataSet(string.Format("select * from f_tinhDoanhThu('{0}','{1}')", ngay1, ngay2));
+        }
+        public int getMaHDNew()
+        {
+            DataTable dt = new DataTable();
+            int result = 0;
+
+            dt=da.executeQueryDataSet(string.Format("select [dbo].[f_TaoHD]()")).Tables[0];
+
+            result=int.Parse(dt.Rows[0][0].ToString());
+
+            return result;
         }
     }
 }

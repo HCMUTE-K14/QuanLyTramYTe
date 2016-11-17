@@ -26,8 +26,8 @@ namespace QuanLyTramYTe.Frm
 
             this.um=um;
 
-            ctthuocDAO=new ChiThuocThuocDAO(um.getUid(), um.getPwd());
-            dvtDAO=new DonViTinhDAO(um.getUid(), um.getPwd());
+            ctthuocDAO=new ChiThuocThuocDAO(um.getDataSource() ,um.getUid(), um.getPwd());
+            dvtDAO=new DonViTinhDAO(um.getDataSource(),um.getUid(), um.getPwd());
         }
 
         private void LoadData()

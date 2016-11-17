@@ -21,19 +21,19 @@ namespace dataAccessLayer
 
         private string uid;
         private string pwd;
-
+        private string datasource;
         public dataAccess()
         {
           
         }
-        public bool OpenConnect(string uid,string pwd)
+        public bool OpenConnect(string datasource,string uid,string pwd)
         {
             try
             {
                 this.uid=uid;
                 this.pwd=pwd;
 
-                this.connectionString=string.Format(@"Data Source=.\SQLEXPRESS;Initial Catalog=[DBMS]Tramyte_Demo;User ID= {0};Password={1}", this.uid, this.pwd);
+                this.connectionString=string.Format(@"Data Source={2};Initial Catalog=[DBMS]Tramyte_Demo;User ID= {0};Password={1}", this.uid, this.pwd,this.datasource);
                 System.Diagnostics.Debug.Write(connectionString);
                 conn=new SqlConnection(this.connectionString);
                 conn.Open();
@@ -52,7 +52,7 @@ namespace dataAccessLayer
 
             if(conn!=null &&conn.State==ConnectionState.Open)
                      conn.Close();
-            OpenConnect(this.uid, this.pwd);
+            OpenConnect(this.datasource,this.uid, this.pwd);
             //this.connectionString=string.Format(@"Data Source=.\SQLEXPRESS;Initial Catalog=[DBMS]Tramyte_Demo;User ID= {0};Password={1}", this.uid, this.pwd);
 
             //conn=new SqlConnection(this.connectionString);

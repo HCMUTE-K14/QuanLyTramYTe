@@ -23,15 +23,18 @@ namespace QuanLyTramYTe.Frm
         {
             InitializeComponent();
 
-            mLogin1.login+=new ucLogin.LoginHandler(loginMethod); 
+            mLogin2.login+=new ucLogin.LoginHandler(loginMethod); 
         }
         UserModel um;
         private void loginMethod(ucLogin.mLogin sender, EventArgs e)
         {
-            string username = mLogin1.userid;
-            string password = mLogin1.password;
+            string username = "trtram";
+            string password = "1234";
+            string datasource = ".\\SQLEXPRESS";
             um= new UserModel(username,password);
-            login=new DangNhapBAL(um.getUid(), um.getPwd());
+            um.setDataSource(datasource);
+            MessageBox.Show(username+password+datasource);
+            login=new DangNhapBAL(um.getDataSource(),um.getUid(), um.getPwd());
 
             if (login.ISLOGINED().Equals("yes"))
             {

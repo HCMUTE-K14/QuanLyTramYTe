@@ -22,8 +22,8 @@ namespace QuanLyTramYTe.Module
 
             this.um=um;
 
-            nvDAO=new NhanVienDAO(um.getUid(), um.getPwd());
-            ltrDAO=new LichTrucDAO(um.getUid(), um.getPwd());
+            nvDAO=new NhanVienDAO(um.getDataSource(), um.getUid(), um.getPwd());
+            ltrDAO=new LichTrucDAO(um.getDataSource(), um.getUid(), um.getPwd());
         }
         private void LoadData()
         {

@@ -13,6 +13,7 @@ namespace QuanLyTramYTe.Classes
         private string chucvu;
         private string manv;
         private string hoten;
+        private string datasource;
         NhanVienDAO nvDAO;
         DangNhapBAL dn;
         public UserModel(string uid, string pwd)
@@ -20,8 +21,8 @@ namespace QuanLyTramYTe.Classes
             this.uid=uid;
             this.pwd=pwd;
 
-            nvDAO=new NhanVienDAO(uid, pwd);
-            dn=new DangNhapBAL(uid,pwd);
+            nvDAO=new NhanVienDAO(datasource, uid, pwd);
+            dn=new DangNhapBAL(datasource, uid,pwd);
 
             System.Data.DataTable dt = new System.Data.DataTable();
 
@@ -32,6 +33,15 @@ namespace QuanLyTramYTe.Classes
             this.chucvu=dt.Rows[0]["ChucVu"].ToString();
             this.hoten=dt.Rows[0]["HoTen"].ToString();
 
+        }
+
+        public void setDataSource(string datasource)
+        {
+            this.datasource=datasource;
+        }
+        public string getDataSource()
+        {
+            return this.datasource;
         }
         public string getHoTen()
         {

@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class LoaiThuocDAO
     {
         dataAccess da;
-        public LoaiThuocDAO(string uid, string pwd)
+        public LoaiThuocDAO(string datasource,string uid, string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getLoaiThuoc()
         {

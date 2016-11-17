@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class NhanVienDAO
     {
         dataAccess da;
-        public NhanVienDAO(string uid,string pwd)
+        public NhanVienDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
 
         public DataSet getNhanVien()

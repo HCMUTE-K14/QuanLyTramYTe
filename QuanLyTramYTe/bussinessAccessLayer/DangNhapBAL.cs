@@ -19,16 +19,15 @@ namespace bussinessAccessLayer
         {
             return isLogined ?"yes":"no";
         }
-        public DangNhapBAL(string uid, string pwd)
+        public DangNhapBAL(string datasource,string uid, string pwd)
         {
             dao=new dataAccess();
 
             this.uid=uid;
             this.pwd=pwd;
 
-            isLogined=CheckLogin(uid, pwd);
-
-           
+            isLogined=CheckLogin(datasource,uid, pwd);
+      
         
         }
 
@@ -40,9 +39,9 @@ namespace bussinessAccessLayer
             return dt.Rows[0][0].ToString();
         }
 
-        public bool CheckLogin(string uid, string pwd)
+        public bool CheckLogin(string datasource,string uid, string pwd)
         {
-            return dao.OpenConnect(uid, pwd);
+            return dao.OpenConnect(datasource,uid, pwd);
         }
 
 

@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class DonViTinhDAO
     {
         dataAccess da;
-        public DonViTinhDAO(string uid,string pwd)
+        public DonViTinhDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getDVT()
         {

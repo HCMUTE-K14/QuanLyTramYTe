@@ -23,9 +23,9 @@ namespace QuanLyTramYTe.Module
 
             this.um=um;
 
-            hdDAO=new HoaDonDAO(um.getUid(), um.getPwd());
+            hdDAO=new HoaDonDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
-            cthdDAO=new ChiTietHoaDonDAO(um.getUid(), um.getPwd());
+            cthdDAO=new ChiTietHoaDonDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
         }
 

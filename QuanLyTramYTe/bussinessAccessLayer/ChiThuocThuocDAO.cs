@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class ChiThuocThuocDAO
     {
         dataAccess da;
-        public ChiThuocThuocDAO(string uid,string pwd)
+        public ChiThuocThuocDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getChiTietThuoc()
         {

@@ -27,7 +27,7 @@ namespace QuanLyTramYTe.Frm
 
             currentTenBN=TenBN;
 
-            ltkDAO=new LichTaiKhamDAO(um.getUid(), um.getPwd());
+            ltkDAO=new LichTaiKhamDAO(um.getDataSource(), um.getUid(), um.getPwd());
         }
 
         private void FrmLichTaiKham_Load(object sender, EventArgs e)

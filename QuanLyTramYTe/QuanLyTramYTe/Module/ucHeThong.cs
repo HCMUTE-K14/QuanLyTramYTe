@@ -22,7 +22,7 @@ namespace QuanLyTramYTe.Module
 
             this.um=um;
 
-            dnDAO=new DangNhapBAL(um.getUid(), um.getPwd());
+            dnDAO=new DangNhapBAL(um.getDataSource(), um.getUid(), um.getPwd());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace QuanLyTramYTe.Module
             if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
                 
-                if (!dnDAO.Backup(fbd.RootFolder.ToString()))
+                if (!dnDAO.Backup(fbd.SelectedPath.ToString()))
                     return;
 
                 MessageBox.Show("Sao lưu thành công:"+fbd.SelectedPath);

@@ -10,10 +10,10 @@ namespace bussinessAccessLayer
     public class BenhNhanDAO
     {
         dataAccess da;
-        public BenhNhanDAO(string uid,string pwd)
+        public BenhNhanDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
            
         }
         public DataSet getBenhNhan()

@@ -11,10 +11,10 @@ namespace bussinessAccessLayer
     public class LichTaiKhamDAO
     {
         dataAccess da;
-        public LichTaiKhamDAO(string uid, string pwd)
+        public LichTaiKhamDAO(string datasource,string uid, string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
 
         public DataSet getLichTaiKham()

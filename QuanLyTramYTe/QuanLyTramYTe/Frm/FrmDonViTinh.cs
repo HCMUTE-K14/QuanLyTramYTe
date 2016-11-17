@@ -19,7 +19,7 @@ namespace QuanLyTramYTe.Frm
 
             this.um=um;
 
-            dvtDAO=new DonViTinhDAO(um.getUid(), um.getPwd());
+            dvtDAO=new DonViTinhDAO(um.getDataSource(), um.getUid(), um.getPwd());
         }
 
         DonViTinhDAO dvtDAO;

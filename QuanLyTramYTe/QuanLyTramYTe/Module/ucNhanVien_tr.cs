@@ -27,7 +27,7 @@ namespace QuanLyTramYTe.Module
 
             this.um=um;
 
-            nvDAO=new NhanVienDAO(um.getUid(), um.getPwd());
+            nvDAO=new NhanVienDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
 
         }

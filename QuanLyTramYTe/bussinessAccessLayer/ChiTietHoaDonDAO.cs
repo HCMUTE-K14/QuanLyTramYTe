@@ -14,10 +14,10 @@ namespace bussinessAccessLayer
     {
         dataAccess da;
 
-        public ChiTietHoaDonDAO(string uid,string pwd)
+        public ChiTietHoaDonDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getChiTietHoaDon(string MaHD)
         {

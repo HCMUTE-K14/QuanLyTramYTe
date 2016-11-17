@@ -28,10 +28,10 @@ namespace QuanLyTramYTe.Frm
 
             this.um=um;
 
-            thuocDao=new ThuocDAO(um.getUid(), um.getPwd());
-            dvtDao=new DonViTinhDAO(um.getUid(), um.getPwd());
-            ltDao=new LoaiThuocDAO(um.getUid(), um.getPwd());
-            cttDao=new ChiThuocThuocDAO(um.getUid(), um.getPwd());
+            thuocDao=new ThuocDAO(um.getDataSource(), um.getUid(), um.getPwd());
+            dvtDao=new DonViTinhDAO(um.getDataSource(), um.getUid(), um.getPwd());
+            ltDao=new LoaiThuocDAO(um.getDataSource(), um.getUid(), um.getPwd());
+            cttDao=new ChiThuocThuocDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
         }
         private void LoadData()

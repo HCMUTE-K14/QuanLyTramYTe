@@ -48,11 +48,9 @@
     <Reference Include="ucHeaderButton">
       <HintPath>..\..\..\..\[CNPM]\AnToanGiaoThong\ucHeaderButton\bin\Debug\ucHeaderButton.dll</HintPath>
     </Reference>
-    <Reference Include="ucLogin">
+    <Reference Include="ucLogin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\[CNPM]\AnToanGiaoThong\ucLogin\bin\Debug\ucLogin.dll</HintPath>
-    </Reference>
-    <Reference Include="ucRegister">
-      <HintPath>..\..\..\..\[CNPM]\AnToanGiaoThong\ucRegister\bin\Debug\ucRegister.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +137,7 @@
     <Compile Include="Module\ucKhamBenh.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Module\ucKhamBenh.Designer.cs">
+    <Compile Include="Module\ucKhamBenh.designer.cs">
       <DependentUpon>ucKhamBenh.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\ucNhanVien_bt.cs">

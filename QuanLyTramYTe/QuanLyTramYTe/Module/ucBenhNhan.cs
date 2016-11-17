@@ -24,7 +24,7 @@ namespace QuanLyTramYTe.Module
         {
             InitializeComponent();
 
-            bn=new BenhNhanDAO(um.getUid(), um.getPwd());
+            bn=new BenhNhanDAO(um.getDataSource(), um.getUid(), um.getPwd());
 
             this.um=um;
         }
@@ -163,7 +163,6 @@ namespace QuanLyTramYTe.Module
                     string qq = txtQueQuan.Text;
                     string cmnd = txtCMND.Text;
                     DateTime ns = DateTime.Parse(dateTimePicker1.Text);
-                    MessageBox.Show(ns.ToShortDateString());
                     string sdt = txtSDT.Text;
                     string gt = comboBox1.Text;
                     bool trangthai = bn.ThemBenhNhan(tenbn,qq,cmnd,ns, sdt, gt);

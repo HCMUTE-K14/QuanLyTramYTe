@@ -13,10 +13,10 @@ namespace bussinessAccessLayer
     public class LichTrucDAO
     {
         dataAccess da;
-        public LichTrucDAO(string uid,string pwd)
+        public LichTrucDAO(string datasource,string uid,string pwd)
         {
             da=new dataAccess();
-            da.OpenConnect(uid, pwd);
+            da.OpenConnect(datasource,uid, pwd);
         }
         public DataSet getLichTruc(string MaNV)
         {
